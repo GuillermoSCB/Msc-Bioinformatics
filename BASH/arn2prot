@@ -1,0 +1,83 @@
+#!/bin/bash
+
+for rna in "$@"; do
+  codons=$(echo $rna | sed 's/\(...\)/\1\n/g')
+
+  protein=""
+
+  for i in $codons ; do
+
+    if [[ $i == "UUU" ]] || [[ $i == "UUC" ]] ; then
+      protein="$protein F"
+
+    elif [[ $i == "UUA" ]] || [[ $i == "UUG" ]] || [[ $i == "CUU" ]] || \
+    [[ $i == "CUC" ]] || [[ $i == "CUA" ]] || [[ $i == "CUG" ]] ; then
+      protein="$protein L"
+
+    elif [[ $i == "UCU" ]] || [[ $i == "UCC" ]] || [[ $i == "UCA" ]] || \
+    [[ $i == "UCG" ]] || [[ $i == "AGU" ]] || [[ $i == "AGC" ]] ; then
+      protein="$protein S"
+
+    elif [[ $i == "UAU" ]] || [[ $i == "UAC" ]] ; then
+      protein="$protein Y"
+
+    elif [[ $i == "UGU" ]] || [[ $i == "UGC" ]] ; then
+      protein="$protein C"
+
+    elif [[ $i == "UGG" ]] ; then
+      protein="$protein W"
+
+    elif [[ $i == "CCU" ]] || [[ $i == "CCC" ]] || [[ $i == "CCA" ]] || \
+    [[ $i == "CCG" ]] ; then
+      protein="$protein P"
+
+    elif [[ $i == "CAU" ]] || [[ $i == "CAC" ]] ; then
+      protein="$protein H"
+
+    elif [[ $i == "CAA" ]] || [[ $i == "CAG" ]] ; then
+      protein="$protein Q"
+
+    elif [[ $i == "CGU" ]] || [[ $i == "CGC" ]] || [[ $i == "CGA" ]] || \
+    [[ $i == "CGG" ]] || [[ $i == "AGA" ]] || [[ $i == "AGG" ]] ; then
+      protein="$protein R"
+
+    elif [[ $i == "AUU" ]] || [[ $i == "AUC" ]] || [[ $i == "AUA" ]] ; then
+      protein="$protein I"
+
+    elif [[ $i == "AUG" ]] ; then
+      protein="$protein M"
+
+    elif [[ $i == "ACU" ]] || [[ $i == "ACC" ]] || [[ $i == "ACA" ]] || \
+    [[ $i == "ACG" ]] ; then
+      protein="$protein T"
+
+    elif [[ $i == "AAU" ]] || [[ $i == "AAC" ]] ; then
+      protein="$protein N"
+
+    elif [[ $i == "AAA" ]] || [[ $i == "AAG" ]] ; then
+      protein="$protein K"
+
+    elif [[ $i == "GUU" ]] || [[ $i == "GUC" ]] || [[ $i == "GUA" ]] || \
+    [[ $i == "GUG" ]] ; then
+      protein="$protein V"
+
+    elif [[ $i == "GCU" ]] || [[ $i == "GCC" ]] || [[ $i == "GCA" ]] || \
+    [[ $i == "GCG" ]] ; then
+      protein="$protein A"
+
+    elif [[ $i == "GAU" ]] || [[ $i == "GAC" ]] ; then
+      protein="$protein D"
+
+    elif [[ $i == "GAA" ]] || [[ $i == "GAG" ]] ; then
+      protein="$protein E"
+
+    elif [[ $i == "GGU" ]] || [[ $i == "GGC" ]] || [[ $i == "GGA" ]] || \
+    [[ $i == "GGG" ]] ; then
+      protein="$protein G"
+
+    fi
+  done
+
+  echo $protein | tr -d ' '
+
+done

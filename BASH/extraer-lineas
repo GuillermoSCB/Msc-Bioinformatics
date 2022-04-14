@@ -1,0 +1,9 @@
+#!/bin/bash
+
+echo -n ''>"$2"
+
+cat "$1" | while read INSTRUCCION; do
+	NUM_LINEA=$(echo "$INSTRUCCION" | cut -d ',' -f1)
+	FICHERO=$(echo "$INSTRUCCION") | cut -d ',' -f2)
+	head -n "$NUM_LINEA" "$FICHERO" | tail -n1 >>"$2"
+done

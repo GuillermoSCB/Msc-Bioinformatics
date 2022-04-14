@@ -1,0 +1,24 @@
+#!/bin/bash
+
+if test $# -ne 2
+then
+        echo "ERROR: El script solo trabaja con 2 parámetros.">&2
+        exit 1
+fi
+
+if  echo $1 | grep -q "[0-1]\+"
+then
+        echo "ERROR: El primer parámetro no puede ser 1 o 0">&2
+        exit 2
+fi
+
+if  echo $2 | grep -q "[0-1]\+"
+then
+        echo "ERROR: El segundo parámetro no puede ser 1 o 0">&2
+        exit 3
+fi
+
+echo "El primer argumento es $1"
+echo "El segundo argumento es $2"
+
+exit 0

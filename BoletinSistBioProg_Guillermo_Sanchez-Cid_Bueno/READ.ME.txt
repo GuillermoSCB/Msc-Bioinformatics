@@ -1,0 +1,7 @@
+Boletín de Ejercicios de Python
+Asignatura: Sistemas Bioinformáticos
+Profesor: CARRILLO DE GEA, JUAN MANUEL
+Bloque: Programación
+Máster de Bioinformática (Universidad de Murcia)
+Curso: 2021-2022
+Autor: SÁNCHEZ-CID BUENO, GUILLERMO

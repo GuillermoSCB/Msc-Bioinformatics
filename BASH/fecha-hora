@@ -1,0 +1,12 @@
+#!/bin/bash
+
+#Sat Dec 4 07:33:53 PM CET 2021
+
+
+hh=$(date | tr -s [:space:] | cut -d' ' -f4 | cut -d':' -f1)
+xx=$(date | tr -s [:space:] | cut -d' ' -f4 | cut -d':' -f2)
+dd=$(date | tr -s [:space:] | cut -d' ' -f3)
+mmmm=$(date | tr -s [:space:] | cut -d' ' -f2)
+aaaa=$(date | tr -s [:space:] | cut -d' ' -f7)
+
+echo Son las $hh horas, $xx minutos del día $dd de $mmmm de $aaaa
